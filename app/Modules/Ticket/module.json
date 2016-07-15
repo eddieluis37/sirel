@@ -1,0 +1,11 @@
+{
+	"name": "Ticket",
+	"slug": "ticket",
+	"namespace": "Ticket",
+	"version": "1.0",
+	"author": "Eddie Luis Rada Gonzalez",
+	"license": "GLP-3.0",
+	"description": "Administra todos los bug reportados",
+	"enabled": false,
+	"initialized": false
+}
