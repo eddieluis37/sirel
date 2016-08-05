@@ -126,8 +126,9 @@ class TicketController extends Controller
 
     //Guarda
 
-    public function store(Request $request)
+    public function store(CreateTicketRequest $request)
     {
+
         return Ticket::create($request->all());
     }
 

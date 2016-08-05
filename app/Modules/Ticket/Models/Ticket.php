@@ -21,7 +21,7 @@ class Ticket extends Model
     protected $table="tickets";
 
     // Atributos que se pueden asignar de manera masiva.
-    protected $fillable = array('name','text','description', 'importance_id', 'type_id', 'section_id');
+    protected $fillable = array('numero', 'name', 'description', 'email', 'confirmed', 'estado', 'importance_id', 'type_id', 'section_id');
 
     // Aquí ponemos los campos que no queremos que se devuelvan en las consultas.
 
