@@ -17,9 +17,14 @@ class CreateAllTicketsTables extends Migration
 
         Schema::create('tickets', function (Blueprint $table) {
             $table->increments('id');
-            $table->char('name', 50)->unique();
-            $table->text('text')->nullable();
-            $table->string('description')->nullable();
+            $table->bigInteger('numero');
+            $table->char('name', 15)->unique();
+            $table->text('description')->nullable();
+            $table->string('email')->nullable();
+            $table->boolean('confirmed');
+            $table->enum('estado', ['abierto', 'cerrado']);
+
+
 
             $table->timestamps();
             $table->softDeletes();

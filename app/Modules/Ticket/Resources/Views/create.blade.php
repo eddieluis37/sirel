@@ -25,94 +25,83 @@
                     {!! Form::open([ 'route' => 'ticket.store', 'method' => 'POST']) !!}
                     <validator name="validation1">
 
-                        <form novalidate>
+                        <form v-form name="myform" @submit.prevent="onSubmit" novalidate>
+
 
                             &nbsp;
 
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="name">Nombre</label>
-                                    <input type="text" id="name" pattern="[a-zA-Z]*" name="name" v-model="newTicket.name" placeholder="Ejemplo: Juan"
-                                           v-validate:name="{ minlength: 3, maxlength: 16 }"
-                                           class="form-control" >
-
-                                    <ul>
-                                        <li v-if="$validation1.name.minlength">
-                                            <div class="text-primary">Mínimo debe contener 3 letras</div></li>
-                                        <li v-if="$validation1.name.maxlength">
-                                            <div class="text-danger">Máximo permitido son 16 letras</div></li>
-                                    </ul>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="name">Número</label><br>
-                                    <input type="number" v-model="newTicket.numbers" placeholder="Ejemplo: 7898"
-                                           v-validate:number="{ min: 99999, max: 9999999999 }" id="numbers" name="numbers"
+                                    <label for="name">Numero</label>
+                                    <input type="number" id="numero" name="numero"
+                                           v-model="newTicket.numero" placeholder="Ejemplo: 12345"
+                                           v-validate:number="{ min: 99999, max: 9999999999 }"
+                                           v-form-ctrl required
                                            class="form-control">
-
                                     <ul>
                                         <li v-if="$validation1.number.min">
-                                            <div class="text-primary">
-                                                Datos númericos incompletos</div></li>
+                                            <div class="text-primary">Datos númericos incompletos</div>
+                                        </li>
                                         <li v-if="$validation1.number.max">
-                                            <div class="text-danger">Números excedidos, !Rectifique¡</div></li>
+                                            <div class="text-danger">Números excedidos,!Rectifique¡</div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label><br>
+                                    <input type="char" id="name" name="name"
+                                           v-model="newTicket.name"
+                                           pattern="[a-zA-Z]*" placeholder="Ejemplo: Juan"
+                                           v-validate:name="{ minlength: 3, maxlength: 16 }"
+                                           v-form-ctrl required
+                                           class="form-control">
+                                    <ul>
+                                        <li v-if="$validation1.name.minlength">
+                                            <div class="text-primary">Minimos de 3 letras</div>
+                                        </li>
+                                        <li v-if="$validation1.name.maxlength">
+                                            <div class="text-danger">Cantidad excedida !Rectifique¡</div>
                                         </li>
 
                                     </ul>
                                     </ul>
                                 </div>
                             </div>
-
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="name">Descripcion</label><br>
-                                    <input type="text" v-model="newTicket.description" placeholder="Descripcion"
-                                           v-validate:description="{ minlength: 3, maxlength: 16 }" id="description"
-                                           name="description"
+                                    <input type="text" id="description" name="description"
+                                           v-model="newTicket.description"
+                                           placeholder="Descripcion"
+                                           v-validate:description="{ minlength: 3, maxlength: 16 }"
                                            class="form-control">
                                     <ul>
                                         <li v-if="$validation1.description.minlength">
-                                            Minimos 3 letras</li>
-                                        <li v-if="$validation1.description.maxlength">Maximo 16 letras</li>
+                                            <div class="text-primary">Mínimo 3 letras</div>
+                                        </li>
+                                        <li v-if="$validation1.description.maxlength">
+                                            <div class="text-danger">Máximo permitido son 16 letras</div>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="name">Activo</label>
-                                    <input type="text" v-model="newTicket.active"
-                                           v-validate:active="{ minlength: 3, maxlength: 16 }" id="name" name="name"
-                                           class="form-control">
-
-                                    <ul>
-                                        <li v-if="$validation1.name.minlength">
-                                            <div class="text-primary">Mínimo debe contener 3 letras</div></li>
-                                        <li v-if="$validation1.name.maxlength">
-                                            <div class="text-danger">Máximo permitido son 16 letras</div></li>
-                                    </ul>
-
-                                </div>
-                            </div>
-
-
                         </form>
+                        <br>
+                        <br>
+                        <div class="col-md-2" class="center-block">
+                            <button type="submit" class="btn btn-success btn-block">Guardar</button>
+                        </div>
+                        {!! Form::close() !!}
                     </validator>
+                </div>
+            </div><!-- /.form-group -->
 
-                    <div class="col-md-2" class="center-block">
+        </div><!-- /.box-body -->
 
-                        <button type="submit" class="btn btn-success btn-block">Guardar</button>
-                    </div>
-                    {!! Form::close() !!}
-                </div><!-- /.form-group -->
-
-            </div><!-- /.box-body -->
-
-        </div><!-- /.box auto-->
+    </div><!-- /.box auto-->
     </div><!-- /.col -->
 
     </div><!-- /.row -->
