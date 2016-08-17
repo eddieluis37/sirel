@@ -64,7 +64,7 @@
                                         </li>
                                         <li v-if="$validation1.name.maxlength">
                                             <div class="text-danger">Cantidad excedida !Rectifique¡</div>
-                                        </li>
+                                        </li>o
 
                                     </ul>
                                     </ul>
